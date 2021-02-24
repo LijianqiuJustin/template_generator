@@ -1,0 +1,10 @@
+#toast-msg
+  - flash.each do |name, msg|
+    .toast-box{data: {controller: 'toast'}}
+      .callout.msg-box
+        .relative
+          .callout-icon
+            %i.far.fa-exclamation-circle
+          %p.small-margin-0.font-bold= msg
+          %a.close-callout{ data: { action: 'click->toast#close' } }
+            %i.fas.fa-times

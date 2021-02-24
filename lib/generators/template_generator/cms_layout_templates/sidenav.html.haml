@@ -1,0 +1,10 @@
+%ul.vertical.menu.sidenav.accordion-menu{"data-accordion-menu" => "drilldown medium-accordion"}
+  %li{class: ('active' if controller_name == 'admin_users')}
+    = link_to admin_admin_users_path do
+      .container
+        .left
+          .icon
+            / unactive
+            / active
+        .right
+          Admin Users

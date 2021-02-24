@@ -1,0 +1,10 @@
+!!!
+%html
+  %head
+    = render 'layouts/head'
+  %body.admin
+    = render 'application/toast'
+    = render 'application/admin_header'
+    = render 'application/sidenav_admin'
+    .main-content
+      = yield
