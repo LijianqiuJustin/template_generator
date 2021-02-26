@@ -1,0 +1,76 @@
+/* class for layout rails-template */
+body.rails-template
+  font-family: 'Open Sans'
+  h1, h2, h3, h4, h5, h6
+    font-family: 'Montserrat'
+  /* layout template structure layout */
+  > .off-canvas-content
+    > .main-content
+      padding: $column-gutter
+      padding-left: $sidenav-width + $column-gutter
+      +calc(min-height, '100vh - #{$header-height}')
+      background-color: $gray-ash
+
+  /* layout private classes */
+  .panel
+    display: flex
+    flex-direction: column
+    width: 100%
+    padding: $column-gutter
+    margin-bottom: $column-gutter
+    background-color: $white
+    border-radius: $global-radius
+    &:last-child
+      margin-bottom: 0
+    .panel-heading
+      +flex(center, space-between)
+      .title
+        font-size: 18px
+        font-weight: bold
+    .panel-body
+    &.reading-panel
+      padding: $column-gutter*3 $column-gutter
+      align-items: center
+      .reading-content
+        max-width: 1200px
+        padding: 0 55px
+        h1, h2, h3, h4, h5, h6, span, p
+          font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif
+          line-height: 1.2
+          margin-bottom: $column-gutter
+        h1
+          font-size: 35px
+          font-weight: bold
+          margin-bottom: $column-gutter * 2
+        h2
+          font-size: 20px
+          font-weight: bold
+        p
+          &:last-child
+            margin-bottom: 0
+        ul
+          margin: 0 0 $column-gutter 35px
+          li
+            margin-bottom: 4px
+        section
+          margin-bottom: $column-gutter * 2
+          &:last-child
+            margin-bottom: 0
+
+
+/* for small screen */
+body.rails-template
+  @include breakpoint(small only)
+    > .off-canvas-content
+      > .main-content
+        padding: $column-gutter
+    /* layout private classes */
+    .panel
+      &.reading-panel
+        padding: $column-gutter
+        .reading-content
+          padding: 0
+          h1
+            font-size: 32px
+          h2
+            font-size: 18px

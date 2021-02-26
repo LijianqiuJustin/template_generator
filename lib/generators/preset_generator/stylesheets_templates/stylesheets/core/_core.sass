@@ -1,0 +1,149 @@
+@import "mixins/all"
+
+$size-list: 0 1 4 5 8 10 15 18 20 30 40 50 55 60 70 75 80 90 100
+$font-list: 12 14 16 18 20 22 24 26 28 30 40 45 50 60 70 80 90 100 120 150
+$align-list: left center right
+$sides-list: top bottom left right
+$flex-list: flex-start flex-end center space-between space-around
+$screen-list: small medium large
+$breakpoint-list: "#{map-get($breakpoints, small)}" "#{map-get($breakpoints, medium)}" "#{map-get($breakpoints, large)}" "#{map-get($breakpoints, xlarge)}"
+
+// ----------------------
+// These are our items, will think of a better name one day soon
+// ----------------------
+
+@mixin items($screen)
+  // Auto width
+  .#{$screen}-width-auto
+    width: auto !important
+
+  // Auto height
+  .#{$screen}-height-auto
+    height: auto !important
+
+  // Margin Auto
+  .#{$screen}-margin-auto
+    margin-left: auto
+    margin-right: auto
+
+  // Margin Reset
+  .#{$screen}-margin-0
+    margin: 0 !important
+
+  .#{$screen}-height-100
+    height: 100% !important
+
+  @each $i in $size-list
+    // Width Percentage
+    .#{$screen}-width-#{$i}
+      width: 1% * $i !important
+
+    // Width Pixel
+    .#{$screen}-width-#{$i}px
+      width: 1px * $i !important
+
+    // Height Pixel
+    .#{$screen}-height-#{$i}px
+      height: 1px * $i !important
+
+    // Height vh
+    .#{$screen}-height-#{$i}vh
+      height: 1vh * $i !important
+
+    // Padding
+    .#{$screen}-padding-#{$i}
+      padding: 1px * $i !important
+
+    // margin
+    .#{$screen}-margin-#{$i}
+      margin: 1px * $i !important
+
+    // horizontal padding
+    .#{$screen}-padding-sides-#{$i}
+      padding: 0 (1px * $i) 0 (1px * $i) !important
+
+    // horizontal margin
+    .#{$screen}-margin-sides-#{$i}
+      margin: 0 (1px * $i) 0 (1px * $i) !important
+
+    // vertical padding
+    .#{$screen}-padding-vsides-#{$i}
+      padding: (1px * $i) 0 (1px * $i) 0 !important
+
+    // vertical margin
+    .#{$screen}-margin-vsides-#{$i}
+      margin: (1px * $i) 0 (1px * $i) 0 !important
+
+    // Build for sides
+    @each $side in $sides-list
+      // Padding Top Bottom
+      .#{$screen}-padding-#{$side}-#{$i}
+        padding-#{$side}: 1px * $i !important
+
+      // Margin Top Bottom
+      .#{$screen}-margin-#{$side}-#{$i}
+        margin-#{$side}: 1px * $i !important
+
+  @each $side in $sides-list
+    // Side Borders
+    .#{$screen}-border-#{$side}
+      border-#{$side}-width: 1px
+      border-#{$side}-style: solid
+      border-color: transparent
+
+  @each $flex_way in $flex-list
+    // flex justify content ways
+    .#{$screen}-justify-#{$flex_way}
+      display: flex !important
+      justify-content: $flex_way !important
+    // flex align items ways
+    .#{$screen}-align-#{$flex_way}
+      display: flex !important
+      align-items: $flex_way !important
+
+  // Font Sizes
+  @each $fs in $font-list
+    .#{$screen}-fontsize-#{$fs}
+      font-size: rem-calc(1 * $fs) !important
+
+// nc-icon
+@each $i in $size-list
+  svg.size-#{$i}
+    width: 1px * $i !important
+    height: 1px * $i !important
+
+// ----------------------
+// Ok let's build these items in each media CLASS
+// TODO: Turn into mixin
+// ----------------------
+
+@each $i in $screen-list
+  @if $i == 'small'
+    @include breakpoint(small up)
+      $screen: $i
+      @include items($screen)
+
+  @if $i == 'medium'
+    @include breakpoint(medium up)
+      $screen: $i
+      @include items($screen)
+
+  @if $i == 'large'
+    @include breakpoint(large up)
+      $screen: $i
+      @include items($screen)
+
+// Vertically middles and element
+=middle
+  +transform(translate(-50%, -50%))
+  position: absolute
+  top: 50%
+  left: 50%
+  width: 100%
+
+=bottom
+  +transform(translate(-50%, 0))
+  position: absolute
+  bottom: 0
+  left: 50%
+  width: 100%

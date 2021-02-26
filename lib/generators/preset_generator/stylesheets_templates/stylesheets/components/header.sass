@@ -1,0 +1,26 @@
+/* header layout */
+body.rails-template
+  header.rails-template-header
+    display: flex
+    position: sticky
+    top: 0
+    margin-left: auto
+    border-bottom: 1px solid $border
+    // +calc(width, '100vw - #{$sidenav-width}')
+    height: $header-height
+    width: 100vw
+    background-color: $white
+    z-index: 30
+    +transition(all 0.4s ease)
+    //+box-shadow(0px 2px 5px 0px rgba(0, 0, 0, 0.1))
+    .logo-area
+      width: $sidenav-width
+      height: 100%
+      +flex
+      img
+        width: 150px
+    .top-bar
+      padding: 0 $column-gutter
+      height: 100%
+      flex: 1
+

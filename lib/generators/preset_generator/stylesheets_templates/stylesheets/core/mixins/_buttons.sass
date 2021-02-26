@@ -1,0 +1,105 @@
+$button-height: 50px
+$button-font-size: 20px
+
+.button
+  display: flex
+  align-items: center
+  justify-content: center
+  height: $button-height
+  min-width: 100px
+  padding: 10px 20px
+  background-color: $primary-color
+  border: 1px solid $primary-color
+  border-radius: $global-radius*2
+  font-size: $button-font-size
+  font-weight: 700
+  color: $white
+  +box-shadow(0 1px 1px rgba(0,0,0,0.2))
+  cursor: pointer
+  +transition(all 0.2s ease)
+  &:hover
+    +transform(translate(0, -1px))
+  &:hover, &:focus
+    background-color: darken($primary-color, 5%)
+    border-color: darken($primary-color, 5%)
+    &.no-hover, &.disabled, &[disabled]
+      +transform(none)
+      +box-shadow(none)
+      cursor: default
+  &.expanded
+    display: flex
+  &.hollow
+    background-color: transparent
+    border: 1px solid $primary-color
+    color: $primary-color
+    &:hover
+      border-color: $primary-color
+      color: $primary-color
+  &.large
+    border-width: 2px
+  &.small
+    padding: rem-calc(5 15)
+  &.tiny
+    font-weight: 400
+    padding: rem-calc(2 6)
+    min-width: 0
+    font-size: .8rem
+  &.page-button //button style used in 'pages'
+    color: $black
+    background-color: $blue-lighter
+    border-color: $blue-lighter
+    border-radius: 60px
+    padding: 15px 30px
+    font-size: 18px
+    margin: 0 10px
+    min-width: 160px
+    text-transform: uppercase
+    &.img-button //app store download buttons
+      padding: 10px 20px
+      img
+        height: 30px
+        width: 120px
+  &.no-border
+    border-color: transparent !important
+  @include breakpoint(small only)
+    padding: .7em 1em
+    &.small
+      padding: rem-calc(5 10)
+    &.tiny
+      padding: rem-calc(2 4)
+
+// Make a button of each color
+@each $name, $color in $color-map
+  .button
+    &.#{$name}
+      background-color: $color
+      border-color: $color
+      &:not(.white):hover, &:focus
+        color: $white
+        background-color: darken($color, 5%)
+        border-color: darken($color, 5%)
+      &.disabled, &[disabled]
+        background-color: lighten($color, 10%) !important
+        // color: rgba(255,255,255,0.8) !important
+        +transform(none)
+        +box-shadow(none)
+        cursor: default
+      &.hollow
+        background-color: transparent
+        color: $color
+        border-color: $color
+        border-width: 1px
+        +box-shadow(none)
+        &:after
+          border-top-color: $color
+          top: .3rem
+        &:hover
+          color: $white
+          background-color: $color
+          border-color: $color
+          &:after
+            border-top-color: $white
+        &, &.disabled, &[disabled]
+          background-color: transparent
+          border-color: $color
+          color: $color

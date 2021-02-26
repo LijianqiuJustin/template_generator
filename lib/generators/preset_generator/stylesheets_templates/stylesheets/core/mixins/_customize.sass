@@ -1,0 +1,65 @@
+//sassc
+@mixin transition($transition)
+  -webkit-transition: $transition
+  -moz-transition: $transition
+  -ms-transition: $transition
+  transition: $transition
+
+@mixin transform($transform)
+  -webkit-transform: $transform
+  -moz-transform: $transform
+  -ms-transform: $transform
+  transform: $transform
+
+@mixin box-shadow($box-shadow)
+  -webkit-box-shadow: $box-shadow
+  -moz-box-shadow: $box-shadow
+  -ms-box-shadow: $box-shadow
+  box-shadow: $box-shadow
+
+@mixin animation($animation)
+  -webkit-animation: $animation
+  -moz-animation: $animation
+  -ms-animation: $animation
+  animation: $animation
+
+/* global mixins */
+@mixin hover-action()
+  +transform(translate(0, -1px))
+  transition: all 0.2s ease 0s
+
+@mixin flex($align: center, $justify: center, $dir: row, $is_wrap: nowrap)
+  display: flex
+  flex-direction: $dir
+  align-items: $align
+  justify-content: $justify
+  flex-wrap: $is_wrap
+
+@mixin background($bg_size: cover, $bg_position: center, $bg_repeat: no-repeat)
+  background-size: $bg_size
+  background-position: $bg_position
+  background-repeat: $bg_repeat
+
+@mixin calc($property, $expression)
+  #{$property}: -moz-calc(#{$expression})
+  #{$property}: -webkit-calc(#{$expression})
+  #{$property}: calc(#{$expression})
+
+@mixin fa_icon($content-code, $color: $black, $font-size: inherit)
+  position: absolute
+  content: $content-code
+  font-family: "FontAwesome"
+  color: $color
+  font-size: $font-size
+
+@mixin fa_icon_pro($content-code, $color: $black, $font-size: inherit)
+  position: absolute
+  content: $content-code
+  font-family: "Font Awesome 5 Pro"
+  color: $color
+  font-size: $font-size
+
+@mixin appearance($val)
+  -webkit-appearance: $val
+  -moz-appearance: $val
+  appearance: $val

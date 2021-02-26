@@ -1,0 +1,68 @@
+// foundation default colors
+$light-gray: #e6e6e6;
+$medium-gray: #cacaca;
+$dark-gray: #8a8a8a;
+
+// basic colors
+$black: #111;
+$white: #fff;
+$transparent: rgba(255, 255, 255, 0);
+$oil: #1a1b1b;
+
+// reference colors
+$white-smoke: #EFEFEF;
+$blue: #4D98FC;
+$blue-lighter: #BFDCE0;
+$blue-sky: #2693ff;
+$yellow: #E69332;
+$yellow-light: #FEE8D6;
+$red: #ea3f34;
+$green: #3AC5AC;
+$green-light: #bdffbd;
+$orange: #FF8E6A;
+$gray: #777;
+$gray-light: #939598;
+$gray-lighter: #e7e7eb;
+$gray-ash: #F1F2F2;
+$gray-shadow: #F3F4F4;
+$gray-text: #DADBDC;
+$border: #EAEAEA;
+
+// put customised colors here
+$blue: #0088CC;
+$sky: #5BC0DE;
+$green: #62C462;
+$orange: #FBB450;
+$red: #EE5F5B;
+$sidenav-hover: $gray-lighter;
+$sidenav-active: #C7CBD1;
+
+// set foundation color palette
+$foundation-palette: (
+  primary: $blue,
+  secondary: $gray,
+  success: $green,
+  warning: $yellow,
+  alert: $red
+);
+
+$color-map: (
+  "yellow-light": $yellow-light,
+  "gray-text": $gray-text,
+  "gray-shadow": $gray-shadow,
+  "gray-ash": $gray-ash,
+  "green-light": $green-light,
+  "blue": $blue,
+  "blue-sky": $blue-sky,
+  "yellow": $yellow,
+  "red": $red,
+  "green": $green,
+  "gray": $gray,
+  "gray-light": $gray-light,
+  "gray-lighter": $gray-lighter,
+  "border": $border,
+  "transparent": $transparent,
+  "black": $black,
+  "white": $white,
+  "blue-lighter": $blue-lighter
+);

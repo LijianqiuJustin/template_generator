@@ -1,0 +1,131 @@
+/* global component values */
+$column-gutter: map-get( $grid-margin-gutters, medium )
+$column-gutter-small: map-get( $grid-margin-gutters, small )
+$form-gutter: $column-gutter
+$form-border: $gray-light
+$form-input-height: 45px
+$header-height: 80px
+$sidenav-width: 260px
+$strict-width: 980px
+
+/* global body style */
+html, body:not(.mailer)
+  width: 100%
+  min-height: 100vh
+  h1, h2, h3, h4, h5, h6, p
+    margin: 0 0 $column-gutter 0
+    padding: 0
+    line-height: 1.2
+    color: $oil
+  a, .button, .reveal, button, input[type="checkbox"], .select2-selection
+    +transition(all 0.2s ease)
+    &:focus
+      outline: none !important
+  .orbit, .orbit div, ul
+    &:focus
+      outline: none !important
+  label
+    font-size: 1rem
+  h1, h2, h3, h4, h5, h6, p, label, a, span
+    &.small
+      font-size: 87.5%
+  #main
+    overflow-x: hidden
+    width: 100%
+
+  /* default global classes */
+  .background-cover
+    background-size: cover !important
+    background-position: center !important
+    background-repeat: no-repeat !important
+
+  .background-contain
+    background-size: contain !important
+    background-position: center !important
+    background-repeat: no-repeat !important
+
+  .transit
+    -webkit-transition: all 0.3s ease
+    -moz-transition: all 0.3s ease
+    -o-transition: all 0.3s ease
+    -ms-transition: all 0.3s ease
+    transition: all 0.3s ease
+
+  .table-block
+    margin: 0
+    padding: 0
+    position: static
+    display: table
+    width: 100%
+    background-size: cover
+    table-layout: fixed
+    &.large > .table-cell
+      padding: map-get( $grid-column-gutter, medium )*3
+    &.medium > .table-cell
+      padding: map-get( $grid-column-gutter, medium )*2
+    &.small > .table-cell
+      padding: map-get( $grid-column-gutter, medium )/2
+    &.tiny > .table-cell
+      padding: 0
+    & > .table-cell
+      display: table-cell
+      vertical-align: middle
+      padding: map-get( $grid-column-gutter, medium )
+      height: 100%
+
+  .no-shadow
+    +box-shadow(none)
+
+  .no-border
+    border: none !important
+
+  .relative
+    position: relative
+
+  .block
+    display: block
+
+  .hide
+    display: none
+
+  .inline-block
+    display: inline-block !important
+
+  .static
+    position: static !important
+
+  .inline
+    display: inline !important
+
+  .word-wrap
+    word-wrap: break-word
+
+  .width-fit
+    width: fit-content !important
+
+  /* customised global classes */
+  .action-area
+    +flex(center, flex-start)
+    flex-wrap: wrap
+    &.wrap
+      flex-wrap: wrap
+    &.space-between
+      justify-content: space-between
+    &.align-right
+      justify-content: flex-end
+    &.stricked
+      max-width: 800px
+    .button
+      margin-bottom: 0
+      margin-right: 4px
+      &:last-child
+        margin: 0
+    .underlined
+      +flex
+      height: 50px
+      color: $gray
+      text-decoration: underline
+      font-weight: 500
+      font-size: 16px
+      &:hover
+        +hover-action
