@@ -16,10 +16,11 @@ module PresetGenerator
 
       def create_assets_files(run: false)
         if run
-          directory 'stylesheets', 'app/assets'
-          template 'packs/style.sass', "app/javascripts/style.sass"
+          # copy all style files
+          directory 'stylesheets', 'app/assets/stylesheets'
+          template 'packs/style.sass', "app/javascript/packs/style.sass"
 
-
+          # add foundation and jquery to application.js
           append_to_file 'app/javascript/packs/application.js' do
 <<-EOF
 import $ from "jquery"
@@ -37,6 +38,18 @@ require("jquery")
 EOF
           end
 
+          # add js dependencies to package
+          append_to_file 'package.json', :after => "\"dependencies\": {\n" do
+<<-EOF
+    "foundation-sites": "^6.6.3",
+    "jquery": "^3.5.1",
+    "motion-ui": "^2.0.3",
+EOF
+          end
+
+          # change webpacker config
+          gsub_file 'config/webpacker.yml', /\bresolved_paths.*/, "resolved_paths: ['app/assets']"
+          gsub_file 'config/webpacker.yml', /\bextract_css.*/, "extract_css: true"
         end
       end
     end
