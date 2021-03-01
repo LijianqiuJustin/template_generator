@@ -23,12 +23,12 @@ Generate cms layout files:
     $ rails generate template_generator:cms_layout
     ```
 ```
-   create  app/views/layouts/admin.html.haml
-   create  app/views/layouts/_head.html.haml
-   create  app/views/application/_toast.html.haml
-   create  app/views/application/_admin_header.html.haml
-   create  app/views/application/_admin_footer.html.haml
-   create  app/views/application/_sidenav_admin.html.haml
+  create  app/views/layouts/admin.html.haml
+  create  app/views/layouts/_head.html.haml
+  create  app/views/application/_toast.html.haml
+  create  app/views/application/_admin_header.html.haml
+  create  app/views/application/_admin_footer.html.haml
+  create  app/views/application/_sidenav_admin.html.haml
 ```
 
 Generate Stylesheets Preset files:
