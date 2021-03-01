@@ -19,8 +19,9 @@ Or install it yourself as:
 ## Usage
 
 Generate cms layout files:
+    ```ruby
     $ rails generate template_generator:cms_layout
-
+    ```
     files will be created:
       `create  app/views/layouts/admin.html.haml`
       `create  app/views/layouts/_head.html.haml`
@@ -29,8 +30,9 @@ Generate cms layout files:
       `create  app/views/application/_admin_footer.html.haml`
       `create  app/views/application/_sidenav_admin.html.haml`
 Generate Stylesheets Preset files:
+    ```ruby
     $ rails generate preset_generator:stylesheets
-
+    ```
     files will be created:
       `create  app/assets/stylesheets/_settings.scss`
       `create  app/assets/stylesheets/components/footer.sass`
@@ -57,7 +59,7 @@ Generate Stylesheets Preset files:
       `gsub  config/webpacker.yml`
       `gsub  config/webpacker.yml`
 
-Run `yarn install` to install libs `foundation`, `jquery`, and `motion-ui` 
+Run `yarn install` to install `foundation`, `jquery`, and `motion-ui` 
 
 ## License
 
